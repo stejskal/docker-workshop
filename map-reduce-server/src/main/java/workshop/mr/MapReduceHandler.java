@@ -131,10 +131,8 @@ public class MapReduceHandler implements HttpHandler {
                     <body>
                        <H1>Factorial</H1>
                        <H2>%s</H2>
-                       <H1>Handled by</H1>
-                       <H2>%s</H2>
                     </body>
-                </html>""".formatted(readableResult, "the only server");
+                </html>""".formatted(readableResult);
         return htmlTemplate;
     }
 

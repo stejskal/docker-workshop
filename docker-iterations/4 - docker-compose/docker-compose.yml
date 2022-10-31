@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  factorial1:
+    image: factorial
+  factorial2:
+    image: factorial
+  factorial3:
+    image: factorial
+  mapreduce:
+    image: map-reduce
+    ports:
+      - "8080:4567"
+    environment:
+      workers: "http://factorial1:8080 http://factorial2:8080 http://factorial3:8080"

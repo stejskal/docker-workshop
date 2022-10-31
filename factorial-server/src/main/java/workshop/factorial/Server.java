@@ -9,14 +9,13 @@ public class Server {
 
     private HttpServer httpServer;
 
-    public void start(int port) throws IOException {
+    public void start() throws IOException {
         if (httpServer != null) {
             throw new IllegalStateException("Http server already started");
         }
-        httpServer = HttpServer.create(new InetSocketAddress(port), 1);
+        httpServer = HttpServer.create(new InetSocketAddress(8080), 1);
         httpServer.createContext("/factorial/", new FactorialHandler());
         httpServer.start();
     }
-
 }
 

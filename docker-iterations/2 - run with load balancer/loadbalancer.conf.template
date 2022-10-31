@@ -1,0 +1,14 @@
+error_log stderr debug;
+
+upstream backend {
+    server 127.0.0.1:8080 max_conns=3;
+    server 127.0.0.1:8081 max_conns=3;
+    server 127.0.0.1:8082 max_conns=3;
+}
+
+server {
+    listen localhost:80;
+    location / {
+        proxy_pass http://backend/;
+    }
+}
