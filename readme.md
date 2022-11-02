@@ -72,7 +72,7 @@ We bind to any available port on the host
 docker run -p 81:80 nginx
 ```
 In this command we are telling the engine to forward requests to the host system that come in on port 81 to the container 
-on its internal port 90.
+on its internal port 80.
 
 ## Factorial Server
 ### Goal of the exercise
@@ -128,7 +128,7 @@ to finish.
 ### Goal of the exercise
 Allow multiple instances of the factorial service to be running simultaneously and front those servers with a load balancer.
 
-![Docker Abstraction](docker-layers.webp)
+![Load Balancer](loadbalancer.png)
 
 ### High level steps
 1. Get 3 instances of the factorial service running
