@@ -1,11 +1,29 @@
 ## Table of Contents
 
+* [Prerequisites](#prerequisites)
 * [Containerization Overview](#containerization-overview)
 * [Factorial server](#factorial-server)
 * [Dockerize Factorial Server](#dockerize)
 * [Load Balancer](#load-balancer)
 * [Map Reduce](#map-reduce)
 * [Docker Compose](#docker-compose)
+
+## Prerequisites
+* Install JDK [version 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+* Install [Maven](https://maven.apache.org/install.html)
+* Install [Docker](https://docs.docker.com/engine/install/)
+* Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* Clone the repo https://github.com/stejskal/docker-workshop 
+```shell
+git clone https://github.com/stejskal/docker-workshop.git
+```
+
+## Optional steps to speed up workshop
+The following commands can be used to pre-download used docker images to save time during the workshop
+```shell
+docker pull nginx
+docker pull maven
+```
 
 ## Workshop goals
 1. Gain basic understanding of containers and docker
@@ -57,10 +75,17 @@ Docker is a popular containerization solution and will be the system we explore 
 
 ![Docker Abstraction](docker-layers.webp)
 
+#### [Docker Hub](https://hub.docker.com/)
+Like maven central which serves freely available jars for use in dependencies, docker has a default repo that serves
+freely available images.  These images can be used to start containers or used as a base image for a new image in 
+a Dockerfile.
+
 #### Creating a container from an existing image
 ```shell
 docker run -p 80:80 nginx
 ```
+
+#### [Container Networking](https://docs.docker.com/config/containers/container-networking/)
 the `-p 80:80` portion of the above command indicates port mapping.  Each container has its own ports to which it can
 listen on.  Port mappings tells the docker image to bind to a specific host port and forward all requests on that port
 to a specific port on the container. the first port in the port mapping is the host port and the second is the container
@@ -87,7 +112,7 @@ package and run the provided factorial server project on your local system
 A simple web server with no dependencies other than the JVM.  Once started it will listen on `localhost:8080\factorial\{int}`
 and will calculate the factorial of any number < Integer.MAX_VALUE and return the value.
 
-Factorial was chosen because it is fast for small numbers but quickly becomes very cpu intensive with larger numbers. 
+Factorial was chosen because it is fast for small numbers but quickly becomes very cpu intensive and slow with larger numbers. 
 This will allow us to simulate slow requests in later exercises.
 
 #### Quick factorial review
