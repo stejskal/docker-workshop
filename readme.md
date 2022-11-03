@@ -9,7 +9,7 @@
 * [Docker Compose](#docker-compose)
 
 ## Prerequisites
-* Install JDK [version 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+* Install [JDK version 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 * Install [Maven](https://maven.apache.org/install.html)
 * Install [Docker](https://docs.docker.com/engine/install/)
 * Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
