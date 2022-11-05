@@ -92,7 +92,19 @@ to a specific port on the container. the first port in the port mapping is the h
 port.  So in the command above we are telling the engine to forward requests to the host system that come in on port 80
 to the container on its internal port 80.  
 
-We bind to any available port on the host
+```shell
+docker ps
+```
+```shell
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+8e8be444004b   nginx     "/docker-entrypoint.…"   4 seconds ago   Up 3 seconds   80/tcp    wizardly_payne
+```
+
+```shell
+docker kill 8e8be444004b
+```
+
+We can bind to any available port on the host
 ```shell
 docker run -p 81:80 nginx
 ```
